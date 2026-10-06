@@ -25,3 +25,12 @@ class TaskResponse(BaseModel):
     model_config = {
         "from_attributes": True
     }
+
+class RegisterRequest(BaseModel):
+    username: str = Field(min_length=5, max_length=50)
+    email: str = Field(min_length=5, max_length=100)
+    password: str = Field(min_length=6)
+
+class LoginRequest(BaseModel):
+    email: str = Field(min_length=5, max_length=100)
+    password: str = Field(min_length=6)
